@@ -10,28 +10,28 @@ import UIKit
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    var tableDataArray:Array<String>? = nil
+    var tableDataArray:Array<String> = []
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tableDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LableCell", for: indexPath)
-        cell.textLabel?.text = "Row \(indexPath.row + 1)"
+        cell.textLabel?.text = (tableDataArray[indexPath.row])
         return cell
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableDataArray! = ["Lable","Button","Text Fields","Alerts","Slider","Progress View","Squlite","Web services","Sample App","Mapview","webView"]
+        tableDataArray = ["Lable","Button","Text Fields","Alerts","Slider","Progress View","Squlite","Web services","Sample App","Mapview","webView"]
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         print("the selected row is: \(indexPath.row + 1)")
     }
-
+    
 }
 
